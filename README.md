@@ -1,2 +1,0 @@
-# OnlineShop
-Asp.net Project
