@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_OnlineShopModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="db_OnlineShopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_ProductType" EntityType="db_OnlineShopModel.tbl_ProductType" />
+  </EntityContainer>
+  <EntityType Name="tbl_ProductType">
+    <Key>
+      <PropertyRef Name="ProductType" />
+    </Key>
+    <Property Name="ProductType" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+</Schema>

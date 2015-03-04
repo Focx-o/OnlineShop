@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_OnlineShopModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="db_OnlineShopModelStoreContainer">
+    <EntitySet Name="tbl_Brand" EntityType="db_OnlineShopModel.Store.tbl_Brand" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Customer" EntityType="db_OnlineShopModel.Store.tbl_Customer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Gender" EntityType="db_OnlineShopModel.Store.tbl_Gender" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Product" EntityType="db_OnlineShopModel.Store.tbl_Product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_ProductType" EntityType="db_OnlineShopModel.Store.tbl_ProductType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Seller" EntityType="db_OnlineShopModel.Store.tbl_Seller" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_tbl_AddProduct_tbl_Brand" Association="db_OnlineShopModel.Store.FK_tbl_AddProduct_tbl_Brand">
+      <End Role="tbl_Brand" EntitySet="tbl_Brand" />
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_AddProduct_tbl_ProductType" Association="db_OnlineShopModel.Store.FK_tbl_AddProduct_tbl_ProductType">
+      <End Role="tbl_ProductType" EntitySet="tbl_ProductType" />
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_AddProduct_tbl_Seller" Association="db_OnlineShopModel.Store.FK_tbl_AddProduct_tbl_Seller">
+      <End Role="tbl_Seller" EntitySet="tbl_Seller" />
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_AddSeller_tbl_Gender" Association="db_OnlineShopModel.Store.FK_tbl_AddSeller_tbl_Gender">
+      <End Role="tbl_Gender" EntitySet="tbl_Gender" />
+      <End Role="tbl_Seller" EntitySet="tbl_Seller" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbl_Brand">
+    <Key>
+      <PropertyRef Name="Brand ID" />
+    </Key>
+    <Property Name="Brand ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Brand" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Customer">
+    <Key>
+      <PropertyRef Name="Customer ID" />
+    </Key>
+    <Property Name="Customer ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Company/Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Organistation Number" Type="varchar" MaxLength="50" />
+    <Property Name="Contact" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="C/O" Type="varchar" MaxLength="50" />
+    <Property Name="Street Address" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Postal Code" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="City" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Country" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Gender">
+    <Key>
+      <PropertyRef Name="GenderID" />
+    </Key>
+    <Property Name="GenderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Gender" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Product">
+    <Key>
+      <PropertyRef Name="Product ID" />
+    </Key>
+    <Property Name="Product ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Product Type ID" Type="int" Nullable="false" />
+    <Property Name="Brand ID" Type="int" Nullable="false" />
+    <Property Name="Product Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Product Info" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Product Cost" Type="int" Nullable="false" />
+    <Property Name="Seller ID" Type="int" Nullable="false" />
+    <Property Name="Product Image" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Product Offer Available" Type="varchar" MaxLength="50" />
+    <Property Name="Product Offer Detail" Type="varchar" MaxLength="5000" />
+    <Property Name="Product Replacement Garentee available" Type="varchar" MaxLength="50" />
+    <Property Name="Cash on Delivery Available" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_ProductType">
+    <Key>
+      <PropertyRef Name="Product Type ID" />
+    </Key>
+    <Property Name="Product Type ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Product Type" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Seller">
+    <Key>
+      <PropertyRef Name="Seller ID" />
+    </Key>
+    <Property Name="Seller ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="BussinessName" Type="varchar" MaxLength="50" />
+    <Property Name="GenderID" Type="int" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="BussinessTelephone" Type="varchar" MaxLength="50" />
+    <Property Name="HomeTelephone" Type="varchar" MaxLength="50" />
+    <Property Name="Fax" Type="varchar" MaxLength="50" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="SkypeName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Website" Type="varchar" MaxLength="100" />
+    <Property Name="AdditionalInfo" Type="varchar" MaxLength="900" />
+  </EntityType>
+  <Association Name="FK_tbl_AddProduct_tbl_Brand">
+    <End Role="tbl_Brand" Type="db_OnlineShopModel.Store.tbl_Brand" Multiplicity="1" />
+    <End Role="tbl_Product" Type="db_OnlineShopModel.Store.tbl_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Brand">
+        <PropertyRef Name="Brand ID" />
+      </Principal>
+      <Dependent Role="tbl_Product">
+        <PropertyRef Name="Brand ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_AddProduct_tbl_ProductType">
+    <End Role="tbl_ProductType" Type="db_OnlineShopModel.Store.tbl_ProductType" Multiplicity="1" />
+    <End Role="tbl_Product" Type="db_OnlineShopModel.Store.tbl_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_ProductType">
+        <PropertyRef Name="Product Type ID" />
+      </Principal>
+      <Dependent Role="tbl_Product">
+        <PropertyRef Name="Product Type ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_AddProduct_tbl_Seller">
+    <End Role="tbl_Seller" Type="db_OnlineShopModel.Store.tbl_Seller" Multiplicity="1" />
+    <End Role="tbl_Product" Type="db_OnlineShopModel.Store.tbl_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Seller">
+        <PropertyRef Name="Seller ID" />
+      </Principal>
+      <Dependent Role="tbl_Product">
+        <PropertyRef Name="Seller ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_AddSeller_tbl_Gender">
+    <End Role="tbl_Gender" Type="db_OnlineShopModel.Store.tbl_Gender" Multiplicity="1" />
+    <End Role="tbl_Seller" Type="db_OnlineShopModel.Store.tbl_Seller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Gender">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="tbl_Seller">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

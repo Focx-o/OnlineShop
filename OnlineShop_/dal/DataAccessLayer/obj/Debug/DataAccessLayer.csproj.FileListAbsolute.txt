@@ -1,0 +1,12 @@
+C:\Users\art-attack\Desktop\customer\OnlineShop\dal\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\art-attack\Desktop\customer\OnlineShop\dal\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\art-attack\Desktop\customer\OnlineShop\dal\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\art-attack\Desktop\customer\OnlineShop\dal\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\art-attack\Desktop\customer\OnlineShop\dal\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\VARSHA\Desktop\OnlineShop\dal\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\VARSHA\Desktop\OnlineShop\dal\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\VARSHA\Desktop\OnlineShop\dal\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\VARSHA\Desktop\OnlineShop\dal\DataAccessLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\VARSHA\Desktop\OnlineShop\dal\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\VARSHA\Desktop\OnlineShop\dal\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\art-attack\Desktop\customer\OnlineShop\dal\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache

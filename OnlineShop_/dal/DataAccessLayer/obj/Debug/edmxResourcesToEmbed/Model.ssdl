@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_OnlineShopModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="db_OnlineShopModelStoreContainer">
+    <EntitySet Name="tbl_ProductType" EntityType="db_OnlineShopModel.Store.tbl_ProductType" store:Type="Tables" store:Schema="dbo" store:Name="tbl_ProductType">
+      <DefiningQuery>SELECT 
+      [tbl_ProductType].[ProductType] AS [ProductType]
+      FROM [dbo].[tbl_ProductType] AS [tbl_ProductType]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'db_OnlineShop.dbo.tbl_ProductType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tbl_ProductType">
+    <Key>
+      <PropertyRef Name="ProductType" />
+    </Key>
+    <Property Name="ProductType" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+</Schema>
