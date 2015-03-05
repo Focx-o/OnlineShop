@@ -65,7 +65,7 @@
                             <td class="style4" style="border: 1px solid gray; padding-left: 3px">
                                 <asp:Label ID="Label4" runat="server" Text="Product ID"></asp:Label>
                             </td>
-                            <td class="style11" style="border: 1px solid gray">
+                            <td class="style11" style="border: 1px solid gray;padding-left:3px">
                                 <asp:Label ID="Product_IDLabel" runat="server" Text='<%# Eval("Product Type ID") %>' />
                             </td>
                         </tr>
@@ -73,7 +73,7 @@
                             <td class="style4" style="border: 1px solid gray; padding-left: 3px">
                                 <asp:Label ID="Label15" runat="server" Text="Product Type"></asp:Label>
                             </td>
-                            <td class="style11" style="border: 1px solid gray">
+                            <td class="style11" style="border: 1px solid gray;padding-left:3px">
                              <asp:Label ID="Product_Type_IDLabel" runat="server" Text='<%# Eval("Product Type ID") %>' />
                                 
                             </td>
@@ -82,7 +82,7 @@
                             <td class="style4" style="border: 1px solid gray; padding-left: 3px">
                                 <asp:Label ID="Label7" runat="server" Text="Product Info"></asp:Label>
                             </td>
-                            <td class="style11" style="border: 1px solid gray">
+                            <td class="style11" style="border: 1px solid gray;padding-left:3px">
                                 <asp:Label ID="Product_InfoLabel" runat="server" Text='<%# Eval("Product Info") %>' />
                             </td>
                         </tr>
@@ -90,7 +90,7 @@
                             <td class="style4" style="border: 1px solid gray; padding-left: 3px">
                                 <asp:Label ID="Label17" runat="server" Text="Brand"></asp:Label>
                             </td>
-                            <td class="style11" style="border: 1px solid gray">
+                            <td class="style11" style="border: 1px solid gray;padding-left:3px">
                                 <asp:Label ID="Brand_IDLabel" runat="server" Text='<%# Eval("Brand ID") %>' />
                             </td>
                         </tr>
@@ -98,7 +98,7 @@
                             <td class="style3" style="border: 1px solid gray; padding-left: 3px">
                                 <asp:Label ID="Label5" runat="server" Text="Seller"></asp:Label>
                             </td>
-                            <td class="style10" style="border: 1px solid gray">
+                            <td class="style10" style="border: 1px solid gray;padding-left:3px">
                                 <asp:Label ID="Seller_IDLabel" runat="server" Text='<%# Eval("Seller ID") %>' />
                             </td>
                         </tr>
@@ -106,15 +106,15 @@
                             <td class="style3" style="border: 1px solid gray; padding-left: 3px">
                                 <asp:Label ID="Label6" runat="server" Text="Price"></asp:Label>
                             </td>
-                            <td class="style10" style="border: 1px solid gray">
-                                <asp:Label ID="Product_CostLabel" runat="server" Text='<%# Eval("Product Cost") %>' />
+                            <td class="style10 price" style="border: 1px solid gray;padding-left:3px">
+                                Rs&nbsp;<asp:Label ID="Product_CostLabel" runat="server" Text='<%# Eval("Product Cost") %>' />
                             </td>
                         </tr>
                         <tr>
                             <td class="style4" style="border: 1px solid gray; padding-left: 3px">
                                 <asp:Label ID="Label1" runat="server" Text="Product Offer Available"></asp:Label>
                             </td>
-                            <td class="style11" style="border: 1px solid gray">
+                            <td class="style11" style="border: 1px solid gray;padding-left:3px">
                                 <asp:Label ID="Product_Offer_AvailableLabel" runat="server" Text='<%# Eval("Product Offer Available") %>' />
                             </td>
                         </tr>
@@ -122,7 +122,7 @@
                             <td class="style4" style="border: 1px solid gray; padding-left: 3px">
                                 <asp:Label ID="Label19" runat="server" Text="Product Offer Detail"></asp:Label>
                             </td>
-                            <td class="style11" style="border: 1px solid gray">
+                            <td class="style11" style="border: 1px solid gray;padding-left:3px">
                                 <asp:Label ID="Product_Offer_DetailLabel" runat="server" Text='<%# Eval("Product Offer Detail") %>' />
                             </td>
                         </tr>
@@ -130,7 +130,7 @@
                             <td class="style4" style="border: 1px solid gray; padding-left: 3px">
                                 <asp:Label ID="Label3" runat="server" Text="Replacement Garentee available"></asp:Label>
                             </td>
-                            <td class="style11" style="border: 1px solid gray">
+                            <td class="style11" style="border: 1px solid gray;padding-left:3px">
                                 <asp:Label ID="Product_Replacement_Garentee_availableLabel" runat="server" Text='<%# Eval("Product Replacement Garentee available") %>' />
                             </td>
                         </tr>

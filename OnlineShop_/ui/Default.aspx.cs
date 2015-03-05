@@ -14,7 +14,7 @@ public partial class _Default : System.Web.UI.Page
     {
         string connect = Convert.ToString(ConfigurationManager.ConnectionStrings["con"]);
         SqlConnection connection = new SqlConnection(connect);
-        SqlCommand comand = new SqlCommand("select * from tbl_Product", connection);
+        SqlCommand comand = new SqlCommand("select * from tbl_Product,tbl_ProductType where tbl_ProductType.[Product Type ID]=tbl_Product.[Product Type ID]", connection);
         SqlDataAdapter sdaProduct = new SqlDataAdapter(comand);
         DataSet dsProduct = new DataSet();
         sdaProduct.Fill(dsProduct);

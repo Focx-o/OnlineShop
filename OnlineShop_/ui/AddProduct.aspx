@@ -96,11 +96,13 @@
                             Product sold by:
                         </td>
                         <td style="width: 254px">
-                            <asp:DropDownList ID="ddlseller" Width="98%" CssClass="field" runat="server" DataSourceID="EntityDataSource3"
-                                DataTextField="Name" DataValueField="Seller_ID" />
-                            <asp:EntityDataSource ID="EntityDataSource3" runat="server" ConnectionString="name=db_OnlineShopEntities"
-                                DefaultContainerName="db_OnlineShopEntities" EnableFlattening="False" EntitySetName="tbl_Seller"
-                                Select="it.[Seller_ID], it.[Name]">
+                            <asp:DropDownList ID="ddlseller" Width="98%" CssClass="field" runat="server" 
+                                DataSourceID="EntityDataSource3" DataTextField="BussinessName" 
+                                DataValueField="Seller_ID" />
+                            <asp:EntityDataSource ID="EntityDataSource3" runat="server" 
+                                ConnectionString="name=db_OnlineShopEntities" 
+                                DefaultContainerName="db_OnlineShopEntities" EnableFlattening="False" 
+                                EntitySetName="tbl_Seller" Select="it.[Seller_ID], it.[BussinessName]">
                             </asp:EntityDataSource>
                         </td>
                         <td style="width: 250px">

@@ -42,12 +42,12 @@
                             <div class="product-desc">
                             <asp:Label runat="server" ID="lblproductid" Visible="false" Text='<%#Eval("[Product ID]")%>'></asp:Label>
                                 <h4>
-                                    <%#Eval("[Product Type ID]")%>
+                                    <%#Eval("[Product Type]")%>'s
                                 </h4>
                                 <p>
                                     <%#Eval("[Product Info]")%>
                                 </p>
-                                <strong class="price">$<%#Eval("[Product Cost]")%></strong>
+                                <strong class="price">Rs <%#Eval("[Product Cost]")%></strong>
                             </div>
                         </div>
                     </li>
