@@ -9,10 +9,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-            Session["user"] = "public";
-            adminPanel.Visible = false;
-            sellerPanel.Visible = false;
-            customerPanel.Visible = false;
+           
     }
 
     
