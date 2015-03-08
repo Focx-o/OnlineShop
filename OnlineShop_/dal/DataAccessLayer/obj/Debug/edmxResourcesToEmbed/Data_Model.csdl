@@ -2,14 +2,20 @@
 <Schema Namespace="db_OnlineShopModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="db_OnlineShopEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tbl_Brand" EntityType="db_OnlineShopModel.tbl_Brand" />
+    <EntitySet Name="tbl_Cart" EntityType="db_OnlineShopModel.tbl_Cart" />
     <EntitySet Name="tbl_Customer" EntityType="db_OnlineShopModel.tbl_Customer" />
     <EntitySet Name="tbl_Gender" EntityType="db_OnlineShopModel.tbl_Gender" />
+    <EntitySet Name="tbl_Guest" EntityType="db_OnlineShopModel.tbl_Guest" />
     <EntitySet Name="tbl_Product" EntityType="db_OnlineShopModel.tbl_Product" />
     <EntitySet Name="tbl_ProductType" EntityType="db_OnlineShopModel.tbl_ProductType" />
     <EntitySet Name="tbl_Seller" EntityType="db_OnlineShopModel.tbl_Seller" />
     <AssociationSet Name="FK_tbl_AddProduct_tbl_Brand" Association="db_OnlineShopModel.FK_tbl_AddProduct_tbl_Brand">
       <End Role="tbl_Brand" EntitySet="tbl_Brand" />
       <End Role="tbl_Product" EntitySet="tbl_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Cart_tbl_Product" Association="db_OnlineShopModel.FK_tbl_Cart_tbl_Product">
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+      <End Role="tbl_Cart" EntitySet="tbl_Cart" />
     </AssociationSet>
     <AssociationSet Name="FK_tbl_AddSeller_tbl_Gender" Association="db_OnlineShopModel.FK_tbl_AddSeller_tbl_Gender">
       <End Role="tbl_Gender" EntitySet="tbl_Gender" />
@@ -31,6 +37,15 @@
     <Property Type="Int32" Name="Brand_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="Brand" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tbl_Product" Relationship="db_OnlineShopModel.FK_tbl_AddProduct_tbl_Brand" FromRole="tbl_Brand" ToRole="tbl_Product" />
+  </EntityType>
+  <EntityType Name="tbl_Cart">
+    <Key>
+      <PropertyRef Name="Cart_ID" />
+    </Key>
+    <Property Type="Int32" Name="Cart_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Email_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Product_ID" Nullable="false" />
+    <NavigationProperty Name="tbl_Product" Relationship="db_OnlineShopModel.FK_tbl_Cart_tbl_Product" FromRole="tbl_Cart" ToRole="tbl_Product" />
   </EntityType>
   <EntityType Name="tbl_Customer">
     <Key>
@@ -56,6 +71,14 @@
     <Property Type="String" Name="Gender" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tbl_Seller" Relationship="db_OnlineShopModel.FK_tbl_AddSeller_tbl_Gender" FromRole="tbl_Gender" ToRole="tbl_Seller" />
   </EntityType>
+  <EntityType Name="tbl_Guest">
+    <Key>
+      <PropertyRef Name="Cart" />
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Type="Int32" Name="Cart" Nullable="false" />
+    <Property Type="Int32" Name="Product_ID" Nullable="false" />
+  </EntityType>
   <EntityType Name="tbl_Product">
     <Key>
       <PropertyRef Name="Product_ID" />
@@ -73,6 +96,7 @@
     <Property Type="String" Name="Product_Replacement_Garentee_available" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="Cash_on_Delivery_Available" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tbl_Brand" Relationship="db_OnlineShopModel.FK_tbl_AddProduct_tbl_Brand" FromRole="tbl_Product" ToRole="tbl_Brand" />
+    <NavigationProperty Name="tbl_Cart" Relationship="db_OnlineShopModel.FK_tbl_Cart_tbl_Product" FromRole="tbl_Product" ToRole="tbl_Cart" />
     <NavigationProperty Name="tbl_ProductType" Relationship="db_OnlineShopModel.FK_tbl_AddProduct_tbl_ProductType" FromRole="tbl_Product" ToRole="tbl_ProductType" />
     <NavigationProperty Name="tbl_Seller" Relationship="db_OnlineShopModel.FK_tbl_AddProduct_tbl_Seller" FromRole="tbl_Product" ToRole="tbl_Seller" />
   </EntityType>
@@ -115,6 +139,18 @@
       </Principal>
       <Dependent Role="tbl_Product">
         <PropertyRef Name="Brand_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Cart_tbl_Product">
+    <End Type="db_OnlineShopModel.tbl_Product" Role="tbl_Product" Multiplicity="1" />
+    <End Type="db_OnlineShopModel.tbl_Cart" Role="tbl_Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Product">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="tbl_Cart">
+        <PropertyRef Name="Product_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

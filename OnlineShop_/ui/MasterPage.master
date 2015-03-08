@@ -20,10 +20,10 @@
                 <a href="Default.aspx">Online Shop</a></h1>
             <!-- Cart -->
             <div id="cart">
-                <a href="#" class="cart-link">Your Shopping Cart</a>
+                <a href="ShoppingCart.aspx" class="cart-link">Your Shopping Cart</a>
                 <div class="cl">
                     &nbsp;</div>
-                <span>Articles: <strong>4</strong></span> &nbsp;&nbsp; <span>Cost: <strong>$250.99</strong></span>
+                <span>Articles: <strong><asp:Label runat="server" ID="lblarticles"></asp:Label></strong></span> &nbsp;&nbsp; <span>Cost: <strong><asp:Label runat="server" ID="lblcost"></asp:Label></strong></span>
             </div>
             <!-- End Cart -->
             <!-- Navigation -->

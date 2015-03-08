@@ -7,8 +7,15 @@
     <Schema Namespace="db_OnlineShopModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="db_OnlineShopModelStoreContainer">
           <EntitySet Name="tbl_Brand" EntityType="db_OnlineShopModel.Store.tbl_Brand" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Cart" EntityType="db_OnlineShopModel.Store.tbl_Cart" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tbl_Customer" EntityType="db_OnlineShopModel.Store.tbl_Customer" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tbl_Gender" EntityType="db_OnlineShopModel.Store.tbl_Gender" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Guest" EntityType="db_OnlineShopModel.Store.tbl_Guest" store:Type="Tables" store:Schema="dbo" store:Name="tbl_Guest">
+            <DefiningQuery>SELECT 
+      [tbl_Guest].[Cart] AS [Cart], 
+      [tbl_Guest].[Product ID] AS [Product ID]
+      FROM [dbo].[tbl_Guest] AS [tbl_Guest]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="tbl_Product" EntityType="db_OnlineShopModel.Store.tbl_Product" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tbl_ProductType" EntityType="db_OnlineShopModel.Store.tbl_ProductType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tbl_Seller" EntityType="db_OnlineShopModel.Store.tbl_Seller" store:Type="Tables" Schema="dbo" />
@@ -28,6 +35,10 @@
             <End Role="tbl_Gender" EntitySet="tbl_Gender" />
             <End Role="tbl_Seller" EntitySet="tbl_Seller" />
           </AssociationSet>
+          <AssociationSet Name="FK_tbl_Cart_tbl_Product" Association="db_OnlineShopModel.Store.FK_tbl_Cart_tbl_Product">
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+            <End Role="tbl_Cart" EntitySet="tbl_Cart" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="tbl_Brand">
           <Key>
@@ -35,6 +46,14 @@
           </Key>
           <Property Name="Brand ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Brand" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Cart">
+          <Key>
+            <PropertyRef Name="Cart ID" />
+          </Key>
+          <Property Name="Cart ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email ID" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Product ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_Customer">
           <Key>
@@ -58,6 +77,17 @@
           </Key>
           <Property Name="GenderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Gender" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db_OnlineShop.dbo.tbl_Guest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tbl_Guest">
+          <Key>
+            <PropertyRef Name="Cart" />
+            <PropertyRef Name="Product ID" />
+          </Key>
+          <Property Name="Cart" Type="int" Nullable="false" />
+          <Property Name="Product ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_Product">
           <Key>
@@ -151,20 +181,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tbl_Cart_tbl_Product">
+          <End Role="tbl_Product" Type="db_OnlineShopModel.Store.tbl_Product" Multiplicity="1" />
+          <End Role="tbl_Cart" Type="db_OnlineShopModel.Store.tbl_Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Product">
+              <PropertyRef Name="Product ID" />
+            </Principal>
+            <Dependent Role="tbl_Cart">
+              <PropertyRef Name="Product ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="db_OnlineShopModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="db_OnlineShopEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_Brand" EntityType="db_OnlineShopModel.tbl_Brand" />
+          <EntitySet Name="tbl_Cart" EntityType="db_OnlineShopModel.tbl_Cart" />
           <EntitySet Name="tbl_Customer" EntityType="db_OnlineShopModel.tbl_Customer" />
           <EntitySet Name="tbl_Gender" EntityType="db_OnlineShopModel.tbl_Gender" />
+          <EntitySet Name="tbl_Guest" EntityType="db_OnlineShopModel.tbl_Guest" />
           <EntitySet Name="tbl_Product" EntityType="db_OnlineShopModel.tbl_Product" />
           <EntitySet Name="tbl_ProductType" EntityType="db_OnlineShopModel.tbl_ProductType" />
           <EntitySet Name="tbl_Seller" EntityType="db_OnlineShopModel.tbl_Seller" />
           <AssociationSet Name="FK_tbl_AddProduct_tbl_Brand" Association="db_OnlineShopModel.FK_tbl_AddProduct_tbl_Brand">
             <End Role="tbl_Brand" EntitySet="tbl_Brand" />
             <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Cart_tbl_Product" Association="db_OnlineShopModel.FK_tbl_Cart_tbl_Product">
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+            <End Role="tbl_Cart" EntitySet="tbl_Cart" />
           </AssociationSet>
           <AssociationSet Name="FK_tbl_AddSeller_tbl_Gender" Association="db_OnlineShopModel.FK_tbl_AddSeller_tbl_Gender">
             <End Role="tbl_Gender" EntitySet="tbl_Gender" />
@@ -186,6 +234,15 @@
           <Property Type="Int32" Name="Brand_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Brand" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbl_Product" Relationship="db_OnlineShopModel.FK_tbl_AddProduct_tbl_Brand" FromRole="tbl_Brand" ToRole="tbl_Product" />
+        </EntityType>
+        <EntityType Name="tbl_Cart">
+          <Key>
+            <PropertyRef Name="Cart_ID" />
+          </Key>
+          <Property Type="Int32" Name="Cart_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Email_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Product_ID" Nullable="false" />
+          <NavigationProperty Name="tbl_Product" Relationship="db_OnlineShopModel.FK_tbl_Cart_tbl_Product" FromRole="tbl_Cart" ToRole="tbl_Product" />
         </EntityType>
         <EntityType Name="tbl_Customer">
           <Key>
@@ -211,6 +268,14 @@
           <Property Type="String" Name="Gender" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbl_Seller" Relationship="db_OnlineShopModel.FK_tbl_AddSeller_tbl_Gender" FromRole="tbl_Gender" ToRole="tbl_Seller" />
         </EntityType>
+        <EntityType Name="tbl_Guest">
+          <Key>
+            <PropertyRef Name="Cart" />
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Type="Int32" Name="Cart" Nullable="false" />
+          <Property Type="Int32" Name="Product_ID" Nullable="false" />
+        </EntityType>
         <EntityType Name="tbl_Product">
           <Key>
             <PropertyRef Name="Product_ID" />
@@ -228,6 +293,7 @@
           <Property Type="String" Name="Product_Replacement_Garentee_available" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Cash_on_Delivery_Available" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbl_Brand" Relationship="db_OnlineShopModel.FK_tbl_AddProduct_tbl_Brand" FromRole="tbl_Product" ToRole="tbl_Brand" />
+          <NavigationProperty Name="tbl_Cart" Relationship="db_OnlineShopModel.FK_tbl_Cart_tbl_Product" FromRole="tbl_Product" ToRole="tbl_Cart" />
           <NavigationProperty Name="tbl_ProductType" Relationship="db_OnlineShopModel.FK_tbl_AddProduct_tbl_ProductType" FromRole="tbl_Product" ToRole="tbl_ProductType" />
           <NavigationProperty Name="tbl_Seller" Relationship="db_OnlineShopModel.FK_tbl_AddProduct_tbl_Seller" FromRole="tbl_Product" ToRole="tbl_Seller" />
         </EntityType>
@@ -270,6 +336,18 @@
             </Principal>
             <Dependent Role="tbl_Product">
               <PropertyRef Name="Brand_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Cart_tbl_Product">
+          <End Type="db_OnlineShopModel.tbl_Product" Role="tbl_Product" Multiplicity="1" />
+          <End Type="db_OnlineShopModel.tbl_Cart" Role="tbl_Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Product">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="tbl_Cart">
+              <PropertyRef Name="Product_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -323,6 +401,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Cart">
+            <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Cart">
+              <MappingFragment StoreEntitySet="tbl_Cart">
+                <ScalarProperty Name="Product_ID" ColumnName="Product ID" />
+                <ScalarProperty Name="Email_ID" ColumnName="Email ID" />
+                <ScalarProperty Name="Cart_ID" ColumnName="Cart ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tbl_Customer">
             <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Customer">
               <MappingFragment StoreEntitySet="tbl_Customer">
@@ -345,6 +432,14 @@
               <MappingFragment StoreEntitySet="tbl_Gender">
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Guest">
+            <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Guest">
+              <MappingFragment StoreEntitySet="tbl_Guest">
+                <ScalarProperty Name="Product_ID" ColumnName="Product ID" />
+                <ScalarProperty Name="Cart" ColumnName="Cart" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -417,17 +512,23 @@
     <Diagrams>
       <Diagram Name="Data_Model">
         <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Brand" Width="1.5" PointX="3" PointY="6.25" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Cart" Width="1.5" PointX="7.5" PointY="2.25" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Customer" Width="1.5" PointX="5.75" PointY="6.75" Height="3.1340950520833317" />
         <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Gender" Width="1.5" PointX="0.75" PointY="2.375" Height="1.5956835937499996" />
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Product" Width="1.5" PointX="5.25" PointY="1.25" Height="3.9033007812500031" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Guest" Width="1.5" PointX="7.75" PointY="5.75" Height="1.4033821614583353" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Product" Width="1.5" PointX="5.25" PointY="1.125" Height="4.0956022135416745" />
         <EntityTypeShape EntityType="db_OnlineShopModel.tbl_ProductType" Width="1.5" PointX="3" PointY="9.5" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Seller" Width="1.5" PointX="3" PointY="1" Height="4.2879036458333317" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Seller" Width="1.5" PointX="3" PointY="1" Height="4.2879036458333388" />
         <AssociationConnector Association="db_OnlineShopModel.FK_tbl_AddProduct_tbl_Brand" >
           <ConnectorPoint PointX="4.5" PointY="6.46875" />
           <ConnectorPoint PointX="5.2447891666666671" PointY="6.4687499999999991" />
           <ConnectorPoint PointX="5.4114558333333331" PointY="6.46875" />
           <ConnectorPoint PointX="5.46875" PointY="6.46875" />
-          <ConnectorPoint PointX="5.46875" PointY="5.1533007812500031" />
+          <ConnectorPoint PointX="5.46875" PointY="5.2206022135416745" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_OnlineShopModel.FK_tbl_Cart_tbl_Product" >
+          <ConnectorPoint PointX="6.75" PointY="3.1439925130208337" />
+          <ConnectorPoint PointX="7.5" PointY="3.1439925130208337" />
         </AssociationConnector>
         <AssociationConnector Association="db_OnlineShopModel.FK_tbl_AddSeller_tbl_Gender" >
           <ConnectorPoint PointX="2.25" PointY="3.172841796875" />
@@ -436,11 +537,11 @@
         <AssociationConnector Association="db_OnlineShopModel.FK_tbl_AddProduct_tbl_ProductType" >
           <ConnectorPoint PointX="4.5" PointY="10.521139322916667" />
           <ConnectorPoint PointX="5.3281225" PointY="10.521139322916667" />
-          <ConnectorPoint PointX="5.3281225" PointY="5.1533007812500031" />
+          <ConnectorPoint PointX="5.3281225" PointY="5.2206022135416745" />
         </AssociationConnector>
         <AssociationConnector Association="db_OnlineShopModel.FK_tbl_AddProduct_tbl_Seller" >
-          <ConnectorPoint PointX="4.5" PointY="3.2016503906250016" />
-          <ConnectorPoint PointX="5.25" PointY="3.2016503906250016" />
+          <ConnectorPoint PointX="4.5" PointY="3.1728011067708373" />
+          <ConnectorPoint PointX="5.25" PointY="3.1728011067708373" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

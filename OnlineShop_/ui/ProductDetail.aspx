@@ -147,7 +147,8 @@
                                 <asp:Button ID="btnBuyNow" CssClass="search-submit" runat="server" Text="Buy Now" />
                             </td>
                             <td align="left">
-                                <asp:Button ID="btnAddToCart" CssClass="search-submit" runat="server" Text="Add to Cart" />
+                                <asp:Button ID="btnAddToCart" CssClass="search-submit" runat="server" 
+                                    Text="Add to Cart" onclick="btnAddToCart_Click" />
                             </td>
                         </tr>
                     </table>

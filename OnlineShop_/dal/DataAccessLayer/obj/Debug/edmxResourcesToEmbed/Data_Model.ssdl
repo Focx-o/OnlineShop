@@ -2,8 +2,15 @@
 <Schema Namespace="db_OnlineShopModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="db_OnlineShopModelStoreContainer">
     <EntitySet Name="tbl_Brand" EntityType="db_OnlineShopModel.Store.tbl_Brand" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Cart" EntityType="db_OnlineShopModel.Store.tbl_Cart" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tbl_Customer" EntityType="db_OnlineShopModel.Store.tbl_Customer" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tbl_Gender" EntityType="db_OnlineShopModel.Store.tbl_Gender" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Guest" EntityType="db_OnlineShopModel.Store.tbl_Guest" store:Type="Tables" store:Schema="dbo" store:Name="tbl_Guest">
+      <DefiningQuery>SELECT 
+      [tbl_Guest].[Cart] AS [Cart], 
+      [tbl_Guest].[Product ID] AS [Product ID]
+      FROM [dbo].[tbl_Guest] AS [tbl_Guest]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="tbl_Product" EntityType="db_OnlineShopModel.Store.tbl_Product" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tbl_ProductType" EntityType="db_OnlineShopModel.Store.tbl_ProductType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tbl_Seller" EntityType="db_OnlineShopModel.Store.tbl_Seller" store:Type="Tables" Schema="dbo" />
@@ -23,6 +30,10 @@
       <End Role="tbl_Gender" EntitySet="tbl_Gender" />
       <End Role="tbl_Seller" EntitySet="tbl_Seller" />
     </AssociationSet>
+    <AssociationSet Name="FK_tbl_Cart_tbl_Product" Association="db_OnlineShopModel.Store.FK_tbl_Cart_tbl_Product">
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+      <End Role="tbl_Cart" EntitySet="tbl_Cart" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="tbl_Brand">
     <Key>
@@ -30,6 +41,14 @@
     </Key>
     <Property Name="Brand ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Brand" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Cart">
+    <Key>
+      <PropertyRef Name="Cart ID" />
+    </Key>
+    <Property Name="Cart ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Email ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Product ID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_Customer">
     <Key>
@@ -53,6 +72,17 @@
     </Key>
     <Property Name="GenderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Gender" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'db_OnlineShop.dbo.tbl_Guest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tbl_Guest">
+    <Key>
+      <PropertyRef Name="Cart" />
+      <PropertyRef Name="Product ID" />
+    </Key>
+    <Property Name="Cart" Type="int" Nullable="false" />
+    <Property Name="Product ID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_Product">
     <Key>
@@ -143,6 +173,18 @@
       </Principal>
       <Dependent Role="tbl_Seller">
         <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Cart_tbl_Product">
+    <End Role="tbl_Product" Type="db_OnlineShopModel.Store.tbl_Product" Multiplicity="1" />
+    <End Role="tbl_Cart" Type="db_OnlineShopModel.Store.tbl_Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Product">
+        <PropertyRef Name="Product ID" />
+      </Principal>
+      <Dependent Role="tbl_Cart">
+        <PropertyRef Name="Product ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

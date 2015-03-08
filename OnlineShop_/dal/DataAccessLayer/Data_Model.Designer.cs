@@ -20,6 +20,7 @@ using System.Xml.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("db_OnlineShopModel", "FK_tbl_AddProduct_tbl_Brand", "tbl_Brand", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataAccessLayer.tbl_Brand), "tbl_Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccessLayer.tbl_Product), true)]
+[assembly: EdmRelationshipAttribute("db_OnlineShopModel", "FK_tbl_Cart_tbl_Product", "tbl_Product", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataAccessLayer.tbl_Product), "tbl_Cart", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccessLayer.tbl_Cart), true)]
 [assembly: EdmRelationshipAttribute("db_OnlineShopModel", "FK_tbl_AddSeller_tbl_Gender", "tbl_Gender", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataAccessLayer.tbl_Gender), "tbl_Seller", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccessLayer.tbl_Seller), true)]
 [assembly: EdmRelationshipAttribute("db_OnlineShopModel", "FK_tbl_AddProduct_tbl_ProductType", "tbl_ProductType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataAccessLayer.tbl_ProductType), "tbl_Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccessLayer.tbl_Product), true)]
 [assembly: EdmRelationshipAttribute("db_OnlineShopModel", "FK_tbl_AddProduct_tbl_Seller", "tbl_Seller", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataAccessLayer.tbl_Seller), "tbl_Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccessLayer.tbl_Product), true)]
@@ -93,6 +94,22 @@ namespace DataAccessLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<tbl_Cart> tbl_Cart
+        {
+            get
+            {
+                if ((_tbl_Cart == null))
+                {
+                    _tbl_Cart = base.CreateObjectSet<tbl_Cart>("tbl_Cart");
+                }
+                return _tbl_Cart;
+            }
+        }
+        private ObjectSet<tbl_Cart> _tbl_Cart;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<tbl_Customer> tbl_Customer
         {
             get
@@ -121,6 +138,22 @@ namespace DataAccessLayer
             }
         }
         private ObjectSet<tbl_Gender> _tbl_Gender;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<tbl_Guest> tbl_Guest
+        {
+            get
+            {
+                if ((_tbl_Guest == null))
+                {
+                    _tbl_Guest = base.CreateObjectSet<tbl_Guest>("tbl_Guest");
+                }
+                return _tbl_Guest;
+            }
+        }
+        private ObjectSet<tbl_Guest> _tbl_Guest;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -183,6 +216,14 @@ namespace DataAccessLayer
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the tbl_Cart EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotbl_Cart(tbl_Cart tbl_Cart)
+        {
+            base.AddObject("tbl_Cart", tbl_Cart);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the tbl_Customer EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTotbl_Customer(tbl_Customer tbl_Customer)
@@ -196,6 +237,14 @@ namespace DataAccessLayer
         public void AddTotbl_Gender(tbl_Gender tbl_Gender)
         {
             base.AddObject("tbl_Gender", tbl_Gender);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the tbl_Guest EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotbl_Guest(tbl_Guest tbl_Guest)
+        {
+            base.AddObject("tbl_Guest", tbl_Guest);
         }
     
         /// <summary>
@@ -331,6 +380,157 @@ namespace DataAccessLayer
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Product>("db_OnlineShopModel.FK_tbl_AddProduct_tbl_Brand", "tbl_Product", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db_OnlineShopModel", Name="tbl_Cart")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tbl_Cart : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new tbl_Cart object.
+        /// </summary>
+        /// <param name="cart_ID">Initial value of the Cart_ID property.</param>
+        /// <param name="email_ID">Initial value of the Email_ID property.</param>
+        /// <param name="product_ID">Initial value of the Product_ID property.</param>
+        public static tbl_Cart Createtbl_Cart(global::System.Int32 cart_ID, global::System.String email_ID, global::System.Int32 product_ID)
+        {
+            tbl_Cart tbl_Cart = new tbl_Cart();
+            tbl_Cart.Cart_ID = cart_ID;
+            tbl_Cart.Email_ID = email_ID;
+            tbl_Cart.Product_ID = product_ID;
+            return tbl_Cart;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Cart_ID
+        {
+            get
+            {
+                return _Cart_ID;
+            }
+            set
+            {
+                if (_Cart_ID != value)
+                {
+                    OnCart_IDChanging(value);
+                    ReportPropertyChanging("Cart_ID");
+                    _Cart_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Cart_ID");
+                    OnCart_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Cart_ID;
+        partial void OnCart_IDChanging(global::System.Int32 value);
+        partial void OnCart_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Email_ID
+        {
+            get
+            {
+                return _Email_ID;
+            }
+            set
+            {
+                OnEmail_IDChanging(value);
+                ReportPropertyChanging("Email_ID");
+                _Email_ID = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Email_ID");
+                OnEmail_IDChanged();
+            }
+        }
+        private global::System.String _Email_ID;
+        partial void OnEmail_IDChanging(global::System.String value);
+        partial void OnEmail_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Product_ID
+        {
+            get
+            {
+                return _Product_ID;
+            }
+            set
+            {
+                OnProduct_IDChanging(value);
+                ReportPropertyChanging("Product_ID");
+                _Product_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Product_ID");
+                OnProduct_IDChanged();
+            }
+        }
+        private global::System.Int32 _Product_ID;
+        partial void OnProduct_IDChanging(global::System.Int32 value);
+        partial void OnProduct_IDChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_OnlineShopModel", "FK_tbl_Cart_tbl_Product", "tbl_Product")]
+        public tbl_Product tbl_Product
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Product>("db_OnlineShopModel.FK_tbl_Cart_tbl_Product", "tbl_Product").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Product>("db_OnlineShopModel.FK_tbl_Cart_tbl_Product", "tbl_Product").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tbl_Product> tbl_ProductReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tbl_Product>("db_OnlineShopModel.FK_tbl_Cart_tbl_Product", "tbl_Product");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Product>("db_OnlineShopModel.FK_tbl_Cart_tbl_Product", "tbl_Product", value);
                 }
             }
         }
@@ -764,6 +964,92 @@ namespace DataAccessLayer
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db_OnlineShopModel", Name="tbl_Guest")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tbl_Guest : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new tbl_Guest object.
+        /// </summary>
+        /// <param name="cart">Initial value of the Cart property.</param>
+        /// <param name="product_ID">Initial value of the Product_ID property.</param>
+        public static tbl_Guest Createtbl_Guest(global::System.Int32 cart, global::System.Int32 product_ID)
+        {
+            tbl_Guest tbl_Guest = new tbl_Guest();
+            tbl_Guest.Cart = cart;
+            tbl_Guest.Product_ID = product_ID;
+            return tbl_Guest;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Cart
+        {
+            get
+            {
+                return _Cart;
+            }
+            set
+            {
+                if (_Cart != value)
+                {
+                    OnCartChanging(value);
+                    ReportPropertyChanging("Cart");
+                    _Cart = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Cart");
+                    OnCartChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Cart;
+        partial void OnCartChanging(global::System.Int32 value);
+        partial void OnCartChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Product_ID
+        {
+            get
+            {
+                return _Product_ID;
+            }
+            set
+            {
+                if (_Product_ID != value)
+                {
+                    OnProduct_IDChanging(value);
+                    ReportPropertyChanging("Product_ID");
+                    _Product_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Product_ID");
+                    OnProduct_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Product_ID;
+        partial void OnProduct_IDChanging(global::System.Int32 value);
+        partial void OnProduct_IDChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="db_OnlineShopModel", Name="tbl_Product")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1130,6 +1416,28 @@ namespace DataAccessLayer
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tbl_Brand>("db_OnlineShopModel.FK_tbl_AddProduct_tbl_Brand", "tbl_Brand", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_OnlineShopModel", "FK_tbl_Cart_tbl_Product", "tbl_Cart")]
+        public EntityCollection<tbl_Cart> tbl_Cart
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tbl_Cart>("db_OnlineShopModel.FK_tbl_Cart_tbl_Product", "tbl_Cart");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tbl_Cart>("db_OnlineShopModel.FK_tbl_Cart_tbl_Product", "tbl_Cart", value);
                 }
             }
         }

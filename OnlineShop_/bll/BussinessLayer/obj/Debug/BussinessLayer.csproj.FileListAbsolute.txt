@@ -12,3 +12,10 @@ C:\Users\VARSHA\Desktop\OnlineShop\bll\BussinessLayer\bin\Debug\DataAccessLayer.
 C:\Users\VARSHA\Desktop\OnlineShop\bll\BussinessLayer\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\VARSHA\Desktop\OnlineShop\bll\BussinessLayer\obj\Debug\BussinessLayer.dll
 C:\Users\VARSHA\Desktop\OnlineShop\bll\BussinessLayer\obj\Debug\BussinessLayer.pdb
+C:\Users\art-attack\Desktop\customer\OnlineShop - Copy - Copy\bll\BussinessLayer\bin\Debug\BussinessLayer.dll
+C:\Users\art-attack\Desktop\customer\OnlineShop - Copy - Copy\bll\BussinessLayer\bin\Debug\BussinessLayer.pdb
+C:\Users\art-attack\Desktop\customer\OnlineShop - Copy - Copy\bll\BussinessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\art-attack\Desktop\customer\OnlineShop - Copy - Copy\bll\BussinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\art-attack\Desktop\customer\OnlineShop - Copy - Copy\bll\BussinessLayer\obj\Debug\BussinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\art-attack\Desktop\customer\OnlineShop - Copy - Copy\bll\BussinessLayer\obj\Debug\BussinessLayer.dll
+C:\Users\art-attack\Desktop\customer\OnlineShop - Copy - Copy\bll\BussinessLayer\obj\Debug\BussinessLayer.pdb

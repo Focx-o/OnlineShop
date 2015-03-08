@@ -9,6 +9,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Cart">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Cart">
+        <MappingFragment StoreEntitySet="tbl_Cart">
+          <ScalarProperty Name="Product_ID" ColumnName="Product ID" />
+          <ScalarProperty Name="Email_ID" ColumnName="Email ID" />
+          <ScalarProperty Name="Cart_ID" ColumnName="Cart ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tbl_Customer">
       <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Customer">
         <MappingFragment StoreEntitySet="tbl_Customer">
@@ -31,6 +40,14 @@
         <MappingFragment StoreEntitySet="tbl_Gender">
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Guest">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Guest">
+        <MappingFragment StoreEntitySet="tbl_Guest">
+          <ScalarProperty Name="Product_ID" ColumnName="Product ID" />
+          <ScalarProperty Name="Cart" ColumnName="Cart" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
