@@ -588,36 +588,36 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Data_Model">
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Brand" Width="1.5" PointX="3" PointY="6.25" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Cart" Width="1.5" PointX="5.75" PointY="6.75" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Customer" Width="1.5" PointX="7.75" PointY="0.75" Height="3.1340950520833388" />
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Gender" Width="1.5" PointX="0.75" PointY="2.375" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Guest" Width="1.5" PointX="7.75" PointY="4.75" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Order" Width="1.5" PointX="7.75" PointY="7.75" Height="3.1340950520833388" />
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_OrderList" Width="1.5" PointX="9.75" PointY="0.75" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Payment" Width="1.5" PointX="9.75" PointY="3.75" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Product" Width="1.5" PointX="5.25" PointY="1.25" Height="3.9033007812500031" />
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_ProductType" Width="1.5" PointX="3" PointY="9.5" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Seller" Width="1.5" PointX="3" PointY="1" Height="4.2879036458333388" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Brand" Width="1.5" PointX="3" PointY="6.25" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Cart" Width="1.5" PointX="5.75" PointY="6.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Customer" Width="1.5" PointX="7.75" PointY="0.75" Height="3.134095052083353" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Gender" Width="1.5" PointX="0.75" PointY="2.375" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Guest" Width="1.5" PointX="7.75" PointY="4.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Order" Width="1.5" PointX="7.75" PointY="7.75" Height="3.134095052083353" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_OrderList" Width="1.5" PointX="9.75" PointY="0.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Payment" Width="1.5" PointX="9.75" PointY="3.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Product" Width="1.5" PointX="5.25" PointY="1.25" Height="3.9033007812499818" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_ProductType" Width="1.5" PointX="3" PointY="9.5" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="db_OnlineShopModel.tbl_Seller" Width="1.5" PointX="3" PointY="1" Height="4.287903645833353" />
         <AssociationConnector Association="db_OnlineShopModel.FK_tbl_AddProduct_tbl_Brand" >
           <ConnectorPoint PointX="4.5" PointY="6.46875" />
           <ConnectorPoint PointX="5.2447891666666671" PointY="6.4687499999999991" />
           <ConnectorPoint PointX="5.4114558333333331" PointY="6.46875" />
           <ConnectorPoint PointX="5.46875" PointY="6.46875" />
-          <ConnectorPoint PointX="5.46875" PointY="5.1533007812500031" />
+          <ConnectorPoint PointX="5.46875" PointY="5.1533007812499818" />
         </AssociationConnector>
         <AssociationConnector Association="db_OnlineShopModel.FK_tbl_AddSeller_tbl_Gender" >
-          <ConnectorPoint PointX="2.25" PointY="3.1728417968750016" />
-          <ConnectorPoint PointX="3" PointY="3.1728417968750016" />
+          <ConnectorPoint PointX="2.25" PointY="3.1728417968749909" />
+          <ConnectorPoint PointX="3" PointY="3.1728417968749909" />
         </AssociationConnector>
         <AssociationConnector Association="db_OnlineShopModel.FK_tbl_AddProduct_tbl_ProductType" >
-          <ConnectorPoint PointX="4.5" PointY="10.297841796875002" />
-          <ConnectorPoint PointX="5.3281225" PointY="10.297841796875002" />
-          <ConnectorPoint PointX="5.3281225" PointY="5.1533007812500031" />
+          <ConnectorPoint PointX="4.5" PointY="10.297841796874991" />
+          <ConnectorPoint PointX="5.3281225" PointY="10.297841796874991" />
+          <ConnectorPoint PointX="5.3281225" PointY="5.1533007812499818" />
         </AssociationConnector>
         <AssociationConnector Association="db_OnlineShopModel.FK_tbl_AddProduct_tbl_Seller" >
-          <ConnectorPoint PointX="4.5" PointY="3.2016503906250016" />
-          <ConnectorPoint PointX="5.25" PointY="3.2016503906250016" />
+          <ConnectorPoint PointX="4.5" PointY="3.2016503906249909" />
+          <ConnectorPoint PointX="5.25" PointY="3.2016503906249909" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
