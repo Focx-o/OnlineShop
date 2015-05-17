@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_OnlineShopModelStoreContainer" CdmEntityContainer="db_OnlineShopEntities">
+    <EntitySetMapping Name="tbl_Brand">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Brand">
+        <MappingFragment StoreEntitySet="tbl_Brand">
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Brand_ID" ColumnName="Brand ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Cart">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Cart">
+        <MappingFragment StoreEntitySet="tbl_Cart">
+          <ScalarProperty Name="Product_ID" ColumnName="Product ID" />
+          <ScalarProperty Name="Email_ID" ColumnName="Email ID" />
+          <ScalarProperty Name="Cart_ID" ColumnName="Cart ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Customer">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Customer">
+        <MappingFragment StoreEntitySet="tbl_Customer">
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Postal_Code" ColumnName="Postal Code" />
+          <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+          <ScalarProperty Name="C_O" ColumnName="C/O" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Organistation_Number" ColumnName="Organistation Number" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company/Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Gender">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Gender">
+        <MappingFragment StoreEntitySet="tbl_Gender">
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Guest">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Guest">
+        <MappingFragment StoreEntitySet="tbl_Guest">
+          <ScalarProperty Name="Product_ID" ColumnName="Product ID" />
+          <ScalarProperty Name="Email_ID" ColumnName="Email ID" />
+          <ScalarProperty Name="Cart" ColumnName="Cart" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Order">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Order">
+        <MappingFragment StoreEntitySet="tbl_Order">
+          <ScalarProperty Name="Customer_Approval" ColumnName="Customer Approval" />
+          <ScalarProperty Name="Delivery_Notice" ColumnName="Delivery Notice" />
+          <ScalarProperty Name="Delivery_Date" ColumnName="Delivery Date" />
+          <ScalarProperty Name="Order_Date" ColumnName="Order Date" />
+          <ScalarProperty Name="Delivery_Status" ColumnName="Delivery Status" />
+          <ScalarProperty Name="Payment_Mode" ColumnName="Payment Mode" />
+          <ScalarProperty Name="Delivery_Address" ColumnName="Delivery Address" />
+          <ScalarProperty Name="Total_Amount" ColumnName="Total Amount" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer ID" />
+          <ScalarProperty Name="Order_ID" ColumnName="Order ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_OrderList">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_OrderList">
+        <MappingFragment StoreEntitySet="tbl_OrderList">
+          <ScalarProperty Name="Product_ID" ColumnName="Product ID" />
+          <ScalarProperty Name="Order_ID" ColumnName="Order ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Payment">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Payment">
+        <MappingFragment StoreEntitySet="tbl_Payment">
+          <ScalarProperty Name="Credit_Card_Number" ColumnName="Credit Card Number" />
+          <ScalarProperty Name="Order_ID" ColumnName="Order ID" />
+          <ScalarProperty Name="Transaction_ID" ColumnName="Transaction ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Product">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Product">
+        <MappingFragment StoreEntitySet="tbl_Product">
+          <ScalarProperty Name="Cash_on_Delivery_Available" ColumnName="Cash on Delivery Available" />
+          <ScalarProperty Name="Product_Replacement_Garentee_available" ColumnName="Product Replacement Garentee available" />
+          <ScalarProperty Name="Product_Offer_Detail" ColumnName="Product Offer Detail" />
+          <ScalarProperty Name="Product_Offer_Available" ColumnName="Product Offer Available" />
+          <ScalarProperty Name="Product_Image" ColumnName="Product Image" />
+          <ScalarProperty Name="Seller_ID" ColumnName="Seller ID" />
+          <ScalarProperty Name="Product_Cost" ColumnName="Product Cost" />
+          <ScalarProperty Name="Product_Info" ColumnName="Product Info" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product Name" />
+          <ScalarProperty Name="Brand_ID" ColumnName="Brand ID" />
+          <ScalarProperty Name="Product_Type_ID" ColumnName="Product Type ID" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProductType">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_ProductType">
+        <MappingFragment StoreEntitySet="tbl_ProductType">
+          <ScalarProperty Name="Product_Type" ColumnName="Product Type" />
+          <ScalarProperty Name="Product_Type_ID" ColumnName="Product Type ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Seller">
+      <EntityTypeMapping TypeName="db_OnlineShopModel.tbl_Seller">
+        <MappingFragment StoreEntitySet="tbl_Seller">
+          <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SkypeName" ColumnName="SkypeName" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="HomeTelephone" ColumnName="HomeTelephone" />
+          <ScalarProperty Name="BussinessTelephone" ColumnName="BussinessTelephone" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+          <ScalarProperty Name="BussinessName" ColumnName="BussinessName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Seller_ID" ColumnName="Seller ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
